@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="7sp"
+        android:paddingLeft="35sp"
+        android:paddingTop="7sp"
+        android:text="Quantity : "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/childItemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7sp"
+        android:paddingTop="7sp"
+        android:text="childitemQ"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/childItemCost" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7sp"
+        android:paddingLeft="35sp"
+        android:paddingTop="7sp"
+        android:text="Cost : "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp"
+        android:layout_below="@+id/tv1"
+        android:layout_alignEnd="@+id/tv1" />
+
+    <TextView
+        android:id="@+id/childItemCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7sp"
+        android:paddingTop="7sp"
+        android:text="childitemCost"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp"
+        android:layout_below="@+id/childItemQuantity"
+        android:layout_toEndOf="@+id/tv1"
+        android:layout_marginStart="22dp" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7sp"
+        android:paddingLeft="35sp"
+        android:paddingTop="7sp"
+        android:text="Notes : "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp"
+        android:layout_below="@+id/tv2"
+        android:layout_alignEnd="@+id/tv2" />
+
+    <TextView
+        android:id="@+id/childItemNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7sp"
+        android:paddingTop="7sp"
+        android:text="childitemNotes"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp"
+        android:layout_below="@+id/childItemCost"
+        android:layout_alignStart="@+id/childItemCost" />
+
+</RelativeLayout>

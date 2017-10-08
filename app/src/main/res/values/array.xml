@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="defaultTasksStringArray">
+        <item>Rice</item>
+        <item>Flour</item>
+        <item>Oil</item>
+        <item>Butter</item>
+        <item>Ketchup</item>
+        <item>Potatoes</item>
+        <item>Onions</item>
+        <item>Tomatoes</item>
+        <item>Oranges</item>
+        <item>Apples</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray0">
+        <item>1</item>
+        <item>150.80</item>
+        <item>Basmati</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray1">
+        <item>2</item>
+        <item>50</item>
+        <item>Whole wheat</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray2">
+        <item>1</item>
+        <item>90.00</item>
+        <item>Sunflower</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray3">
+        <item>100</item>
+        <item>150</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray4">
+        <item>1</item>
+        <item>15.10</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray5">
+        <item>1</item>
+        <item>15</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray6">
+        <item>1</item>
+        <item>10</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray7">
+        <item>500</item>
+        <item>100</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray8">
+        <item>6</item>
+        <item>50</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <string-array name="defaultDetStringArray9">
+        <item>12</item>
+        <item>50</item>
+        <item>No Notes</item>
+    </string-array>
+
+    <!--
+        <string-array name="defaultDetStringArray">
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+            <item></item>
+        </string-array>
+    -->
+
+
+</resources>

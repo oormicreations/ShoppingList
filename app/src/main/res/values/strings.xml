@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Shopping List</string>
+    <string name="action_info">Info</string>
+    <string name="longpress">Long Press an item to add/edit.</string>
+    <string name="dbmsg">Db loaded</string>
+    <string name="initmsg">Data Initialized.</string>
+    <string name="editCancel">Cancel</string>
+    <string name="editOk">Apply</string>
+    <string name="hintTaskName">Enter new item</string>
+    <string name="hintNotes">Notes and reminders</string>
+    <string name="editGroupDialogTitle">Item Details</string>
+    <string name="hintQty">Quantity</string>
+    <string name="hintCost">Cost</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_share">Share</string>
+
+</resources>
