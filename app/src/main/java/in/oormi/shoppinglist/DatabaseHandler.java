@@ -22,6 +22,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_COST = "cost";
     private static final String KEY_NOTES = "notes";
     private static final String KEY_TASKID = "taskid";
+    private static final String KEY_ENABLED = "enabled";
     private static final String KEY_SEQ = "seq";
 
     public DatabaseHandler(Context context) {
@@ -35,7 +36,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT,"
-                + KEY_TASKID + " INTEGER" + ")";
+                + KEY_TASKID + " INTEGER,"
+                + KEY_ENABLED + " INTEGER"
+                + ")";
 
         db.execSQL(CREATE_TASKS_TABLE);
 
@@ -68,6 +71,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, task.getTask());
         values.put(KEY_TASKID, task.getId());
+        values.put(KEY_ENABLED, task.getEnabled());
 
         // Inserting Row
         long id = db.insert(TABLE_TASKS, null, values);
@@ -156,6 +160,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             do {
                 GroupInfo task = new GroupInfo();
                 task.setTask(cursor.getString(1), Integer.parseInt(cursor.getString(2)));
+                boolean b = cursor.getString(3).equals("1");
+                task.setEnabled(b);
                 taskList.add(task);
             } while (cursor.moveToNext());
         }
@@ -185,6 +191,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, task.getTask());
+        values.put(KEY_ENABLED, task.getEnabled());
         //return db.update(TABLE_TASKS, values, KEY_ID + " = ?", new String[] { "ID" });
         return db.update(TABLE_TASKS, values,
                 KEY_TASKID + String.format(" = %d", task.getId()), null);

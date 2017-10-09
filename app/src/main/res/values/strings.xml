@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Shopping List</string>
     <string name="action_info">Info</string>
-    <string name="longpress">Long Press an item to add/edit.</string>
+    <string name="longpress">Long Press an item to add/edit. Swipe to include or exclude</string>
     <string name="dbmsg">Db loaded</string>
     <string name="initmsg">Data Initialized.</string>
     <string name="editCancel">Cancel</string>

@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.MenuInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
@@ -36,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<GroupInfo> allTaskList = new ArrayList<GroupInfo>();
 
     private CustomAdapter listAdapter;
-    private ExpandableListView simpleExpandableListView;
+    private ExpandableListView expList;
     public DatabaseHandler db = new DatabaseHandler(this);
 
     @Override
@@ -58,45 +54,52 @@ public class MainActivity extends AppCompatActivity {
 
         if (!loadDb()) initData();
         calcEstimate();
-        Toast.makeText(this, getString(R.string.longpress), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.longpress), Toast.LENGTH_LONG).show();
 
-        simpleExpandableListView = (ExpandableListView) findViewById(R.id.expList);
+        expList = (ExpandableListView) findViewById(R.id.expList);
         listAdapter = new CustomAdapter(MainActivity.this, allTaskList);
-        simpleExpandableListView.setAdapter(listAdapter);
+        expList.setAdapter(listAdapter);
 
-        simpleExpandableListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        final SwipeDetector swipeDetector = new SwipeDetector();
+        expList.setOnTouchListener(swipeDetector);
+
+        expList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                int itemType = ExpandableListView.getPackedPositionType(id);
-
-                if (itemType == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
-                    int childPosition = ExpandableListView.getPackedPositionChild(id);
-                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
-                    //editChildDialog(groupPosition, childPosition);
-                    editGroupDialog(groupPosition);
-                    return true; //true if we consumed the click, false if not
-
-                } else if (itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
-                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
-                    editGroupDialog(groupPosition);
-                    return true; //true if we consumed the click, false if not
-
+                if (swipeDetector.swipeDetected()){
+                    //let onclicklistener handle it
                 } else {
-                    // null item; we don't consume the click
-                    return false;
+                    int itemType = ExpandableListView.getPackedPositionType(id);
+
+                    if (itemType == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
+                        //int childPosition = ExpandableListView.getPackedPositionChild(id);
+                        int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+                        //editChildDialog(groupPosition, childPosition);
+                        editGroupDialog(groupPosition);
+                        return true; //true if we consumed the click, false if not
+
+                    } else if (itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
+                        int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+                        editGroupDialog(groupPosition);
+                        return true; //true if we consumed the click, false if not
+
+                    } else {
+                        // null item; we don't consume the click
+                        return false;
+                    }
                 }
+                return false;
             }
         });
 
-        final SwipeDetector swipeDetector = new SwipeDetector();
-        simpleExpandableListView.setOnTouchListener(swipeDetector);
-        simpleExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+        expList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if (swipeDetector.swipeDetected()){
                     allTaskList.get(groupPosition).setEnabled(!allTaskList.get(groupPosition).getEnabled());
-                    simpleExpandableListView.collapseGroup(groupPosition);
+                    expList.collapseGroup(groupPosition);
                     listAdapter.notifyDataSetChanged();
+                    db.updateTask(allTaskList.get(groupPosition));
                     calcEstimate();
                     return true;
                 } else {
@@ -168,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         allTaskList.addAll(allTasks);
         //for(GroupInfo task: allTaskList) detailsMap.put(task.getTask(), task);
 
-        Toast.makeText(this, getString(R.string.dbmsg), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, getString(R.string.dbmsg), Toast.LENGTH_SHORT).show();
 
         return true;
     }

@@ -8,22 +8,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:paddingBottom="7sp"
+        android:paddingBottom="4sp"
         android:paddingLeft="35sp"
-        android:paddingTop="7sp"
+        android:paddingTop="4sp"
         android:text="Quantity : "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/childItemQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="7sp"
-        android:paddingTop="7sp"
+        android:paddingBottom="4sp"
+        android:paddingTop="4sp"
         android:text="childitemQ"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/childItemCost" />
 
@@ -31,12 +31,12 @@
         android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="7sp"
+        android:paddingBottom="4sp"
         android:paddingLeft="35sp"
-        android:paddingTop="7sp"
+        android:paddingTop="4sp"
         android:text="Cost : "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_below="@+id/tv1"
         android:layout_alignEnd="@+id/tv1" />
 
@@ -44,11 +44,11 @@
         android:id="@+id/childItemCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="7sp"
-        android:paddingTop="7sp"
+        android:paddingBottom="4sp"
+        android:paddingTop="4sp"
         android:text="childitemCost"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_below="@+id/childItemQuantity"
         android:layout_toEndOf="@+id/tv1"
         android:layout_marginStart="22dp" />
@@ -57,12 +57,12 @@
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="7sp"
+        android:paddingBottom="4sp"
         android:paddingLeft="35sp"
-        android:paddingTop="7sp"
+        android:paddingTop="4sp"
         android:text="Notes : "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_below="@+id/tv2"
         android:layout_alignEnd="@+id/tv2" />
 
@@ -70,11 +70,11 @@
         android:id="@+id/childItemNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="7sp"
-        android:paddingTop="7sp"
+        android:paddingBottom="4sp"
+        android:paddingTop="4sp"
         android:text="childitemNotes"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_below="@+id/childItemCost"
         android:layout_alignStart="@+id/childItemCost" />
 
